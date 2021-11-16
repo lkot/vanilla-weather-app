@@ -1,12 +1,131 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vanilla Weather App</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ea3bd6b13f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-    
+
+    <!-- <div class="paralax-img"></div> -->
+
+    <div class="wrapper">
+
+        <!-- Top section - the city browser -->
+
+        <div class="top">
+
+            <h1>Vanilla Weather App</h1>
+
+            <div class='city-browser'>
+                <input type="text" placeholder="Enter the city name..." /><button>
+                    Search
+                </button>
+                <p class="warning"></p>
+            </div>
+            <h3 class="city-name">Warsaw</h3>
+            <h3 class="current-date">Tuesday 16th November</h3>
+
+        </div>
+
+        <!-- Current day's weather -->
+
+        <div class="current">
+
+            <div class="current-weather">
+                <img src="" alt="Weather image" class="photo" />
+                <h3>12°C</h3>
+            </div>
+
+            <div className="current-details">
+                <div className="rain">
+                    <h3>12°C</h3>
+                    <p>Feels like</p>
+                </div>
+                <div className="wind">
+                    <h3>24km/h</h3>
+                    <p>Wind speed</p>
+                </div>
+                <div className="sunrise">
+                    <h3>7:47</h3>
+                    <p>Sunrise</p>
+                </div>
+                <div className="pressure">
+                    <h3>1020hPa</h3>
+                    <p>Pressure</p>
+                </div>
+                <div className="humidity">
+                    <h3>25%</h3>
+                    <p>Humidity</p>
+                </div>
+                <div className="sunset">
+                    <h3>21:45</h3>
+                    <p>Sunset</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Forecast for the next 5 days -->
+
+        <div class="forecast">
+            <div className='day'>
+                <h4>
+                    Wednesday
+                </h4>
+                <img src="" alt="Weather image" class="photo" />
+                <p><span>17°C</span> <span>4°C</span></p>
+            </div>
+            <div className='day'>
+                <h4>
+                    Thursday
+                </h4>
+                <img src="" alt="Weather image" class="photo" />
+                <p><span>18°C</span> <span>5°C</span></p>
+            </div>
+            <div className='day'>
+                <h4>
+                    Friday
+                </h4>
+                <img src="" alt="Weather image" class="photo" />
+                <p><span>15°C</span> <span>3°C</span></p>
+            </div>
+            <div className='day'>
+                <h4>
+                    Saturday
+                </h4>
+                <img src="" alt="Weather image" class="photo" />
+                <p><span>13°C</span> <span>2°C</span></p>
+            </div>
+            <div className='day'>
+                <h4>
+                    Sunday
+                </h4>
+                <img src="" alt="Weather image" class="photo" />
+                <p><span>17°C</span> <span>5°C</span></p>
+            </div>
+            <!-- </div>
+            <div className='day'>
+                <h4>
+                    Monday
+                </h4>
+                <img src="" alt="Weather image" class="photo" />
+                <p><span>17°C</span> <span>5°C</span></p>
+            </div> -->
+        </div>
+
+
+    </div>
+
 </body>
+
 </html>
