@@ -16,61 +16,56 @@
 
 <body>
 
-    <!-- <div class="paralax-img"></div> -->
-
     <div class="wrapper">
 
+
         <!-- Top section - the city browser -->
+        <h1>Vanilla Weather App</h1>
 
-        <div class="top">
+        <div class='city-browser'>
+            <input type="text" placeholder="Enter the city name..." /><button><i class="fas fa-search-location"></i>
+            </button>
+            <!-- <p class="warning">lala</p> -->
+            <!-- <i class="fas fa-search-location"></i> -->
+        </div>
 
-            <h1>Vanilla Weather App</h1>
-
-            <div class='city-browser'>
-                <input type="text" placeholder="Enter the city name..." /><button>
-                    Search
-                </button>
-                <p class="warning"></p>
+        <div class="main-info">
+            <div class="main-text">
+                <h3 class="city-name">Warsaw</h3>
+                <p class="current-date">Tuesday 16th November</p>
             </div>
-            <h3 class="city-name">Warsaw</h3>
-            <h3 class="current-date">Tuesday 16th November</h3>
-
+            <div class="main-weather"> <img src="./img/sun.svg" alt="Weather image" class="weather-icon" />
+                <h3>12°C</h3>
+            </div>
         </div>
 
         <!-- Current day's weather -->
 
         <div class="current">
 
-            <div class="current-weather">
-                <img src="" alt="Weather image" class="photo" />
+            <div className="rain">
                 <h3>12°C</h3>
+                <p>Feels like</p>
             </div>
-
-            <div className="current-details">
-                <div className="rain">
-                    <h3>12°C</h3>
-                    <p>Feels like</p>
-                </div>
-                <div className="wind">
-                    <h3>24km/h</h3>
-                    <p>Wind speed</p>
-                </div>
-                <div className="sunrise">
-                    <h3>7:47</h3>
-                    <p>Sunrise</p>
-                </div>
-                <div className="pressure">
-                    <h3>1020hPa</h3>
-                    <p>Pressure</p>
-                </div>
-                <div className="humidity">
-                    <h3>25%</h3>
-                    <p>Humidity</p>
-                </div>
-                <div className="sunset">
-                    <h3>21:45</h3>
-                    <p>Sunset</p>
-                </div>
+            <div className="wind">
+                <h3>24km/h</h3>
+                <p>Wind speed</p>
+            </div>
+            <div className="sunrise">
+                <h3>7:47</h3>
+                <p>Sunrise</p>
+            </div>
+            <div className="pressure">
+                <h3>1020hPa</h3>
+                <p>Pressure</p>
+            </div>
+            <div className="humidity">
+                <h3>25%</h3>
+                <p>Humidity</p>
+            </div>
+            <div className="sunset">
+                <h3>21:45</h3>
+                <p>Sunset</p>
             </div>
 
         </div>
@@ -82,46 +77,51 @@
                 <h4>
                     Wednesday
                 </h4>
-                <img src="" alt="Weather image" class="photo" />
+                <img src="./img/sun.svg" alt="Weather image" class="weather-icon" />
                 <p><span>17°C</span> <span>4°C</span></p>
             </div>
             <div className='day'>
                 <h4>
                     Thursday
                 </h4>
-                <img src="" alt="Weather image" class="photo" />
+                <img src="./img/sun.svg" alt="Weather image" class="weather-icon" />
                 <p><span>18°C</span> <span>5°C</span></p>
             </div>
             <div className='day'>
                 <h4>
                     Friday
                 </h4>
-                <img src="" alt="Weather image" class="photo" />
+                <img src="./img/sun.svg" alt="Weather image" class="weather-icon" />
                 <p><span>15°C</span> <span>3°C</span></p>
             </div>
             <div className='day'>
                 <h4>
                     Saturday
                 </h4>
-                <img src="" alt="Weather image" class="photo" />
+                <img src="./img/sun.svg" alt="Weather image" class="weather-icon" />
                 <p><span>13°C</span> <span>2°C</span></p>
             </div>
             <div className='day'>
                 <h4>
                     Sunday
                 </h4>
-                <img src="" alt="Weather image" class="photo" />
+                <img src="./img/sun.svg" alt="Weather image" class="weather-icon" />
                 <p><span>17°C</span> <span>5°C</span></p>
             </div>
-            <!-- </div>
             <div className='day'>
                 <h4>
                     Monday
                 </h4>
-                <img src="" alt="Weather image" class="photo" />
+                <img src="./img/sun.svg" alt="Weather image" class="weather-icon" />
                 <p><span>17°C</span> <span>5°C</span></p>
-            </div> -->
+            </div>
         </div>
+
+    </div>
+
+
+
+
 
 
     </div>
