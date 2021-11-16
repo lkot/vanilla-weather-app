@@ -47,10 +47,20 @@ h1 {
 }
 
 .city-browser {
+	position: relative;
 	display: flex;
 	justify-content: center;
 	width: 50%;
 	margin-bottom: 1em;
+}
+
+.warning {
+	position: absolute;
+	color: rgb(160, 0, 0);
+	font-size: 2rem;
+	font-weight: 700;
+	top: 90px;
+	left: 120px;
 }
 
 input {
