@@ -15,10 +15,10 @@ body {
 	/* position: relative; */
 
 	display: flex;
-	font-family: 'Montserrat', sans-serif;
-	color: #fff;
 	height: 100vh;
+	color: #fff;
 	font-size: 1.6rem;
+	font-family: 'Montserrat', sans-serif;
 	background-image: linear-gradient(
 			to bottom,
 			rgba(220, 75, 75, 0.6),
@@ -61,6 +61,7 @@ h1 {
 	font-weight: 700;
 	top: 90px;
 	left: 120px;
+	/* display: none; */
 }
 
 input {
@@ -72,7 +73,7 @@ input {
 	margin-bottom: 1em;
 	font-size: 2rem;
 	height: 80px;
-	/* outline: none; */
+	outline: none;
 	/* padding-right: 50px; */
 }
 
@@ -140,11 +141,38 @@ button:hover {
 	text-align: center;
 	width: 80%;
 	height: 250px;
-	margin-top: 2em;
+	margin-top: 1em;
 	border-radius: 20px;
 	font-size: 2.5rem;
-	background-color: rgba(0, 0, 0, 0.3);
+	background-color: rgba(0, 0, 0, 0.4);
 }
+
+/* 
+.current > div,
+.forecast > div {
+	flex-basis: calc(100% / 6);
+	align-items: center;
+	overflow: hidden;
+	transition: background-color 0.3s;
+}
+
+.current > div:hover,
+.forecast > div:hover {
+	overflow: hidden;
+	background-color: rgba(0, 0, 0, 0.4);
+} */
+
+/* 
+.forecast > * {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	transition: background-color 0.3s;
+}
+
+.forecast > *:hover {
+	background-color: rgba(0, 0, 0, 0.9);
+} */
 
 /* 
 .current {
@@ -157,3 +185,104 @@ button:hover {
 .current-details {
 	flex-basis: 50%;
 } */
+
+/*********** RWD BREAKPOINTS ************/
+
+/* 
+576px for portrait phones.
+768px for tablets.
+992px for laptops.
+1200px for large devices. 
+*/
+
+@media (max-width: 576px) {
+	html {
+	}
+
+	body {
+		font-size: 1rem;
+		background-image: linear-gradient(
+				to bottom,
+				rgba(220, 75, 75, 0.6),
+				rgba(71, 17, 17, 0.3)
+			),
+			url('./img/vertical-mountains.jpg');
+		background-repeat: no-repeat;
+		overflow: hidden;
+	}
+
+	h1 {
+		font-size: 2.4rem;
+		margin-bottom: 0.1em;
+	}
+
+	input {
+		width: 100%;
+		padding: 10px;
+		height: 40px;
+		margin-left: 50px;
+
+	}
+
+	button {
+		height: 40px;
+		padding: 10px;
+		margin-left: -50px;
+	}
+
+	button:hover {
+		background-color: transparent;
+	}
+
+	.wrapper {
+		height: 100%;
+		/* max-width: 1200px; */
+	}
+
+	.city-browser {
+		width: 80%;
+		margin-bottom: 0.5em;
+		margin-left: -65px;
+	}
+
+	button,
+	.main-info,
+	.current,
+	.forecast {
+		font-size: 1.7rem;
+	}
+
+	input,
+	.warning,
+	.main-text > p,
+	.warning {
+		font-size: 1.2rem;
+	}
+
+	.weather-icon {
+		/* font-size: 3rem; */
+		transform: scale(1);
+		padding: 0.5em;
+	}
+
+	.warning {
+		top: 40px;
+		left: 60px;
+		/* display: none; */
+	}
+}
+
+@media (max-width: 768px) {
+
+	button,
+	input,
+	.main-info,
+	.current,
+	.forecast {
+		font-size: 1.6rem;
+	}
+
+	.city-browser {
+		width: 80%;
+	}
+}
