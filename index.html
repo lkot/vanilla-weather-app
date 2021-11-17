@@ -33,11 +33,13 @@
 
         <div class="main-info">
             <div class="main-text">
-                <h3 class="city-name">Warsaw</h3>
-                <p class="current-date">Tuesday 16th November</p>
+                <h3 class="city-name"></h3>
+                <p class="current-day"></p>
+                <!-- <p class="current-date">Tuesday 16th November</p> -->
             </div>
-            <div class="main-weather"> <img src="./img/sun.svg" alt="Weather image" class="weather-icon" />
-                <h3>12°C</h3>
+            <div class="main-weather">
+                <img src="" alt="Weather image" class="weather-icon" />
+                <h3 class='current-temp'></h3>
             </div>
         </div>
 
@@ -45,77 +47,89 @@
 
         <div class="current">
 
-            <div className="rain">
+            <div className='day'>
                 <p>Feels like</p>
-                <h3>12°C</h3>
+                <h3 className="feels-like">
+
+                </h3>
             </div>
-            <div className="wind">
+            <div className='day'>
                 <p>Wind speed</p>
-                <h3>24km/h</h3>
+                <h3 className='wind-speed'>
+
+                </h3>
             </div>
-            <div className="pressure">
+            <div className='day'>
                 <p>Pressure</p>
-                <h3>1020hPa</h3>
+                <h3 className="pressure">
+
+                </h3>
             </div>
-            <div className="humidity">
+            <div className='day'>
                 <p>Humidity</p>
-                <h3>25%</h3>
+                <h3 className="humidity">
+
+                </h3>
             </div>
-            <div className="sunrise">
+            <div className='day'>
                 <p>Sunrise</p>
-                <h3>7:47</h3>
+                <h3 className="sunrise">
+
+                </h3>
             </div>
-            <div className="sunset">
+            <div className='day'>
                 <p>Sunset</p>
-                <h3>21:45</h3>
+                <h3 className="sunset">
+
+                </h3>
             </div>
 
         </div>
 
-        <!-- Forecast for the next 5 days -->
+        <!-- Forecast for the next 6 days -->
 
         <div class="forecast">
             <div className='day'>
-                <h4>
-                    Wednesday
+                <h4 class='day-one'>
+
                 </h4>
-                <img src="./img/sun.svg" alt="Weather image" class="weather-icon" />
-                <p><span>17°C</span> <span>4°C</span></p>
+                <!-- <img src="" alt="Weather image" class="weather-icon" /> -->
+                <p><span class='temp-max-one'>17°C</span> <span class='temp-min-one'>4°C</span></p>
             </div>
             <div className='day'>
-                <h4>
-                    Thursday
+                <h4 class='day-two'>
+
                 </h4>
-                <img src="./img/sun.svg" alt="Weather image" class="weather-icon" />
-                <p><span>18°C</span> <span>5°C</span></p>
+                <!-- <img src="" alt="Weather image" class="weather-icon" /> -->
+                <p><span class='temp-max-two'>18°C</span> <span class='temp-min-two'>5°C</span></p>
             </div>
             <div className='day'>
-                <h4>
-                    Friday
+                <h4 className='day-three'>
+
                 </h4>
-                <img src="./img/sun.svg" alt="Weather image" class="weather-icon" />
-                <p><span>15°C</span> <span>3°C</span></p>
+                <!-- <img src="" alt="Weather image" class="weather-icon" /> -->
+                <p><span class='temp-max-three'>15°C</span> <span class='temp-min-three'>3°C</span></p>
             </div>
             <div className='day'>
-                <h4>
-                    Saturday
+                <h4 class='day-four'>
+
                 </h4>
-                <img src="./img/sun.svg" alt="Weather image" class="weather-icon" />
-                <p><span>13°C</span> <span>2°C</span></p>
+                <!-- <img src="" alt="Weather image" class="weather-icon" /> -->
+                <p><span class='temp-max-four'>13°C</span> <span class='temp-min-four'>2°C</span></p>
             </div>
             <div className='day'>
-                <h4>
-                    Sunday
+                <h4 class='day-five'>
+
                 </h4>
-                <img src="./img/sun.svg" alt="Weather image" class="weather-icon" />
-                <p><span>17°C</span> <span>5°C</span></p>
+                <!-- <img src="" alt="Weather image" class="weather-icon" /> -->
+                <p><span class='temp-max-five'>17°C</span> <span class='temp-min-five'>5°C</span></p>
             </div>
             <div className='day'>
-                <h4>
-                    Monday
+                <h4 class='day-six'>
+
                 </h4>
-                <img src="./img/sun.svg" alt="Weather image" class="weather-icon" />
-                <p><span>17°C</span> <span>5°C</span></p>
+                <!-- <img src="" alt="Weather image" class="weather-icon" /> -->
+                <p><span class='temp-max-six'>17°C</span> <span class='temp-min-six'>5°C</span></p>
             </div>
         </div>
 
@@ -128,6 +142,9 @@
 
     </div>
 
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./script.js"></script>
 </body>
 
 </html>
