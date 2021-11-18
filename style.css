@@ -13,7 +13,6 @@ html {
 
 body {
 	/* position: relative; */
-
 	display: flex;
 	height: 100vh;
 	color: #fff;
@@ -122,11 +121,6 @@ button:hover {
 	transform: scale(2);
 	padding: 1em;
 }
-
-/* 
-.main-info>* {
-	width: 50%;
-} */
 
 .current,
 .forecast {
