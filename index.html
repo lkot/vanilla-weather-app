@@ -25,11 +25,8 @@
         <div class='city-browser'>
             <input type="text" placeholder="Enter the city name..." /><button><i class="fas fa-search-location"></i>
             </button>
-            <!-- <i class="fas fa-search-location"></i> -->
             <p class="warning">Incorrect city name!</p>
-
         </div>
-
 
         <div class="main-info">
             <div class="main-text">
@@ -38,7 +35,7 @@
                 <!-- <p class="current-date">Tuesday 16th November</p> -->
             </div>
             <div class="main-weather">
-                <img src="" alt="Weather image" class="weather-icon" />
+                <img src="" alt="Weather image" class="weather-icon weather-icon-current" />
                 <h3 class='current-temp'></h3>
             </div>
         </div>
@@ -50,40 +47,39 @@
             <div className='day'>
                 <p>Feels like</p>
                 <h3 className="feels-like">
-
+                    <p class="feeling"></p>
                 </h3>
             </div>
             <div className='day'>
                 <p>Wind speed</p>
                 <h3 className='wind-speed'>
-
+                    <p class='windy'></p>
                 </h3>
             </div>
             <div className='day'>
                 <p>Pressure</p>
-                <h3 className="pressure">
-
+                <h3 className="air-pressure">
+                    <p class="pressure"></p>
                 </h3>
             </div>
             <div className='day'>
                 <p>Humidity</p>
-                <h3 className="humidity">
-
+                <h3 className="air-humidity">
+                    <p class="humidity"></p>
                 </h3>
             </div>
             <div className='day'>
                 <p>Sunrise</p>
-                <h3 className="sunrise">
-
+                <h3 className="time-sunrise">
+                    <p class="sunrise"></p>
                 </h3>
             </div>
             <div className='day'>
                 <p>Sunset</p>
-                <h3 className="sunset">
-
+                <h3 className="time-sunset">
+                    <p class="sunset"></p>
                 </h3>
             </div>
-
         </div>
 
         <!-- Forecast for the next 6 days -->
@@ -93,43 +89,44 @@
                 <h4 class='day-one'>
 
                 </h4>
-                <!-- <img src="" alt="Weather image" class="weather-icon" /> -->
+                <img src="" alt="Weather image" class="weather-icon weather-icon-one" />
                 <p><span class='temp-max-one'>17°C</span> <span class='temp-min-one'>4°C</span></p>
             </div>
             <div className='day'>
                 <h4 class='day-two'>
 
                 </h4>
-                <!-- <img src="" alt="Weather image" class="weather-icon" /> -->
+                <img src="" alt="Weather image" class="weather-icon weather-icon-two" />
                 <p><span class='temp-max-two'>18°C</span> <span class='temp-min-two'>5°C</span></p>
             </div>
-            <div className='day'>
-                <h4 className='day-three'>
 
-                </h4>
-                <!-- <img src="" alt="Weather image" class="weather-icon" /> -->
-                <p><span class='temp-max-three'>15°C</span> <span class='temp-min-three'>3°C</span></p>
-            </div>
             <div className='day'>
                 <h4 class='day-four'>
 
                 </h4>
-                <!-- <img src="" alt="Weather image" class="weather-icon" /> -->
+                <img src="" alt="Weather image" class="weather-icon weather-icon-four" />
                 <p><span class='temp-max-four'>13°C</span> <span class='temp-min-four'>2°C</span></p>
             </div>
             <div className='day'>
                 <h4 class='day-five'>
 
                 </h4>
-                <!-- <img src="" alt="Weather image" class="weather-icon" /> -->
+                <img src="" alt="Weather image" class="weather-icon weather-icon-five" />
                 <p><span class='temp-max-five'>17°C</span> <span class='temp-min-five'>5°C</span></p>
             </div>
             <div className='day'>
                 <h4 class='day-six'>
 
                 </h4>
-                <!-- <img src="" alt="Weather image" class="weather-icon" /> -->
+                <img src="" alt="Weather image" class="weather-icon weather-icon-six" />
                 <p><span class='temp-max-six'>17°C</span> <span class='temp-min-six'>5°C</span></p>
+            </div>
+            <div className='day'>
+                <h4 class='day-seven'>
+
+                </h4>
+                <img src="" alt="Weather image" class="weather-icon weather-icon-seven" />
+                <p><span class='temp-max-seven'></span> <span class='temp-min-seven'></span></p>
             </div>
         </div>
 
