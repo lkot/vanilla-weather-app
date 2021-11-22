@@ -86,7 +86,7 @@ const getWeather = () => {
 			const unixDate = res.data.dt;
 
 			feelsLike.textContent = Math.floor(feels) + '°C';
-			windSpeed.textContent = wind + ' m/s';
+			windSpeed.textContent = (wind*3.6).toFixed(1) + ' km/h';
 			pressure.textContent = press + ' hPa';
 			humidity.textContent = hum + ' %';
 
@@ -293,7 +293,7 @@ const getForecast = (urlSecond) => {
 			// tempMinSix.textContent = Math.floor(data.daily[dayIndex].temp.min) + '°C';
 			tempMinSix.textContent = `${Math.floor(
 				data.daily[dayIndex].temp.min
-			)} °C`;
+			)}°C`;
 
 			// Seventh day (but third day, "long story...")
 			d = new Date(data.daily[dayIndex].dt * 1000);

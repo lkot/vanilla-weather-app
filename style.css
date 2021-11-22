@@ -31,7 +31,7 @@ h1 {
 	padding: 20px;
 	color: #fff;
 	font-size: 4rem;
-	margin-bottom: 1em;
+	margin-bottom: 0.4em;
 }
 
 .wrapper {
@@ -90,13 +90,13 @@ button {
 	font-size: 4rem;
 	height: 80px;
 	cursor: pointer;
-	margin-left: -100px;
+	margin-left: -90px;
 	transition: background-color 0.3s, color 0.3s;
 }
 
 button:hover {
 	color: rgb(133, 5, 5);
-	background-color: rgb(240, 240, 240);
+	/* background-color: rgb(240, 240, 240); */
 }
 
 .main-info {
@@ -132,6 +132,7 @@ button:hover {
 	width: 80%;
 	height: 250px;
 	margin-top: 1em;
+	margin-bottom: 0.6em;
 	border-radius: 20px;
 	font-size: 2.5rem;
 	background-color: rgba(0, 0, 0, 0.4);
