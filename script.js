@@ -2,8 +2,10 @@ const input = document.querySelector('input');
 const btn = document.querySelector('button');
 
 const cityName = document.querySelector('.city-name');
+const currentDescription = document.querySelector('.current-description');
 const currentTemp = document.querySelector('.current-temp');
 const currentDay = document.querySelector('.current-day');
+const currentDate = document.querySelector('.current-date');
 const warning = document.querySelector('.warning');
 
 // Weather icon for each particular day
@@ -81,27 +83,69 @@ const getWeather = () => {
 			const hum = res.data.main.humidity;
 			const unixSunrise = res.data.sys.sunrise;
 			const unixSunset = res.data.sys.sunset;
+			const unixDate = res.data.dt;
 
 			feelsLike.textContent = Math.floor(feels) + '°C';
-			windSpeed.textContent = wind + ' km/h';
+			windSpeed.textContent = wind + ' m/s';
 			pressure.textContent = press + ' hPa';
 			humidity.textContent = hum + ' %';
 
+			// Date of the current day.
+			const unixDateTime = new Date(
+				unixDate * 1000 + res.data.timezone * 1000 - 1000
+			);
+			const months = [
+				'January',
+				'February',
+				'March',
+				'April',
+				'May',
+				'June',
+				'July',
+				'August',
+				'September',
+				'October',
+				'November',
+				'December',
+			];
+			const year = unixDateTime.getFullYear();
+			const month = months[unixDateTime.getMonth()];
+			const dayOfMonth = unixDateTime.getDate();
+			currentDate.textContent = dayOfMonth + 'th ' + month + ' ' + year;
+
+			// console.log(new Date(obj.dt*1000-(obj.timezone*1000)));
+
+			// timezone offset
+			// const timezoneOffset = res.data.dt
+
+			// const sr = new Date((unixSunrise + res.data.timezone) * 1000);
 			// Sunrise
-			const unixTimeSunrise = new Date(unixSunrise * 1000);
-			const hoursSunrise = unixTimeSunrise.getHours();
-			const minutesSunrise = unixTimeSunrise.getMinutes() < 10 ? '0' + unixTimeSunrise.getMinutes() : unixTimeSunrise.getMinutes();			sunrise.textContent = hoursSunrise + ':' + minutesSunrise;
+			const unixTimeSunrise = new Date(
+				unixSunrise * 1000 + res.data.timezone * 1000
+			);
+			const hoursSunrise = unixTimeSunrise.getHours() - 1;
+			const minutesSunrise =
+				unixTimeSunrise.getMinutes() < 10
+					? '0' + unixTimeSunrise.getMinutes()
+					: unixTimeSunrise.getMinutes();
+			sunrise.textContent = hoursSunrise + ':' + minutesSunrise;
 
 			// Sunset
-			const unixTimeSunset = new Date(unixSunset * 1000);
-			const hoursSunset = unixTimeSunset.getHours();
-			const minutesSunset = unixTimeSunset.getMinutes() < 10 ? '0' + unixTimeSunset.getMinutes() : unixTimeSunset.getMinutes();
+			const unixTimeSunset = new Date(
+				unixSunset * 1000 + res.data.timezone * 1000
+			);
+			const hoursSunset = unixTimeSunset.getHours() - 1;
+			const minutesSunset =
+				unixTimeSunset.getMinutes() < 10
+					? '0' + unixTimeSunset.getMinutes()
+					: unixTimeSunset.getMinutes();
 			sunset.textContent = hoursSunset + ':' + minutesSunset;
 
 			// Do status przypiszemy zwykły pojedynczy obiekt - przy użyciu assign'a "rozsmarujemy" całą tablicę, która znajduje się w res.data.weather
 			const status = Object.assign({}, ...res.data.weather);
 
 			cityName.textContent = res.data.name;
+			currentDescription.textContent = res.data.weather[0].main;
 			currentTemp.textContent = Math.floor(temp) + '°C';
 			warning.textContent = '';
 			input.value = '';
@@ -119,7 +163,6 @@ const getWeather = () => {
 				units;
 
 			getForecast(urlNew);
-
 		})
 		.catch(() => {
 			warning.textContent = 'Enter the correct city name.';
@@ -247,7 +290,10 @@ const getForecast = (urlSecond) => {
 			dayIndex++;
 
 			tempMaxSix.textContent = Math.floor(data.daily[dayIndex].temp.max) + '°C';
-			tempMinSix.textContent = Math.floor(data.daily[dayIndex].temp.min) + '°C';
+			// tempMinSix.textContent = Math.floor(data.daily[dayIndex].temp.min) + '°C';
+			tempMinSix.textContent = `${Math.floor(
+				data.daily[dayIndex].temp.min
+			)} °C`;
 
 			// Seventh day (but third day, "long story...")
 			d = new Date(data.daily[dayIndex].dt * 1000);

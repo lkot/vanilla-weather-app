@@ -23,7 +23,7 @@ body {
 			rgba(220, 75, 75, 0.6),
 			rgba(71, 17, 17, 0.3)
 		),
-		url('./img/sunset-over-mountains-BIG.jpg');
+		url('./img/mountain-top.jpg');
 	background-size: cover;
 }
 
@@ -137,12 +137,18 @@ button:hover {
 	background-color: rgba(0, 0, 0, 0.4);
 }
 
-/* 
-.current > div,
+.current h3 {
+	margin-top: 1em;
+}
+
+/* .current > div,
 .forecast > div {
+	height: 100%;
 	flex-basis: calc(100% / 6);
 	align-items: center;
 	overflow: hidden;
+	border-radius: 20px;
+
 	transition: background-color 0.3s;
 }
 
@@ -255,6 +261,10 @@ button:hover {
 		top: 40px;
 		left: 60px;
 		/* display: none; */
+	}
+
+	.current h3 {
+		margin-top: 0.5em;
 	}
 }
 
