@@ -1,3 +1,5 @@
+'use strict';
+
 const input = document.querySelector('input');
 const btn = document.querySelector('button');
 
@@ -69,7 +71,7 @@ const getWeather = () => {
 	city = !input.value ? 'Warsaw' : input.value;
 	url = apiLink + city + apiKey + units;
 
-	// przy pomocy axios'a pobieramy url, który u góry stworzyliśmy
+	// Using API via URL link  I've made above.
 	axios
 		.get(url)
 		.then((res) => {
@@ -85,10 +87,10 @@ const getWeather = () => {
 			const unixSunset = res.data.sys.sunset;
 			const unixDate = res.data.dt;
 
-			feelsLike.textContent = Math.floor(feels) + '°C';
-			windSpeed.textContent = (wind*3.6).toFixed(1) + ' km/h';
-			pressure.textContent = press + ' hPa';
-			humidity.textContent = hum + ' %';
+			feelsLike.textContent = `${Math.floor(feels)}°C`;
+			windSpeed.textContent = `${(wind * 3.6).toFixed(1)} km/h`;
+			pressure.textContent = `${press} hPa`;
+			humidity.textContent = `${hum}%`;
 
 			// Date of the current day.
 			const unixDateTime = new Date(
@@ -141,7 +143,7 @@ const getWeather = () => {
 					: unixTimeSunset.getMinutes();
 			sunset.textContent = hoursSunset + ':' + minutesSunset;
 
-			// Do status przypiszemy zwykły pojedynczy obiekt - przy użyciu assign'a "rozsmarujemy" całą tablicę, która znajduje się w res.data.weather
+			// Assigning single object to the status - using axios I'll 'spread' the array(which is located in res.data.weather).
 			const status = Object.assign({}, ...res.data.weather);
 
 			cityName.textContent = res.data.name;
@@ -233,8 +235,8 @@ const getForecast = (urlSecond) => {
 			whatWeather(weatherIconOne, data.daily[dayIndex].weather[0].id);
 			dayIndex++;
 
-			tempMaxOne.textContent = Math.floor(data.daily[dayIndex].temp.max) + '°C';
-			tempMinOne.textContent = Math.floor(data.daily[dayIndex].temp.min) + '°C';
+			tempMaxOne.textContent = `${Math.floor(data.daily[dayIndex].temp.max)}°C`;
+			tempMinOne.textContent = `${Math.floor(data.daily[dayIndex].temp.min)}°C`;
 
 			// Second day
 			d = new Date(data.daily[dayIndex].dt * 1000);
@@ -243,8 +245,8 @@ const getForecast = (urlSecond) => {
 			whatWeather(weatherIconTwo, data.daily[dayIndex].weather[0].id);
 			dayIndex++;
 
-			tempMaxTwo.textContent = Math.floor(data.daily[dayIndex].temp.max) + '°C';
-			tempMinTwo.textContent = Math.floor(data.daily[dayIndex].temp.min) + '°C';
+			tempMaxTwo.textContent = `${Math.floor(data.daily[dayIndex].temp.max)}°C`;
+			tempMinTwo.textContent = `${Math.floor(data.daily[dayIndex].temp.min)}°C`;
 
 			// Third day
 			// d = new Date(data.daily[dayIndex].dt * 1000);
@@ -265,10 +267,12 @@ const getForecast = (urlSecond) => {
 			whatWeather(weatherIconFour, data.daily[dayIndex].weather[0].id);
 			dayIndex++;
 
-			tempMaxFour.textContent =
-				Math.floor(data.daily[dayIndex].temp.max) + '°C';
-			tempMinFour.textContent =
-				Math.floor(data.daily[dayIndex].temp.min) + '°C';
+			tempMaxFour.textContent = `${Math.floor(
+				data.daily[dayIndex].temp.max
+			)}°C`;
+			tempMinFour.textContent = `${Math.floor(
+				data.daily[dayIndex].temp.min
+			)}°C`;
 
 			// Fifth day
 			d = new Date(data.daily[dayIndex].dt * 1000);
@@ -277,10 +281,12 @@ const getForecast = (urlSecond) => {
 			whatWeather(weatherIconFive, data.daily[dayIndex].weather[0].id);
 			dayIndex++;
 
-			tempMaxFive.textContent =
-				Math.floor(data.daily[dayIndex].temp.max) + '°C';
-			tempMinFive.textContent =
-				Math.floor(data.daily[dayIndex].temp.min) + '°C';
+			tempMaxFive.textContent = `${Math.floor(
+				data.daily[dayIndex].temp.max
+			)}°C`;
+			tempMinFive.textContent = `${Math.floor(
+				data.daily[dayIndex].temp.min
+			)}°C`;
 
 			// Sixth day
 			d = new Date(data.daily[dayIndex].dt * 1000);
@@ -289,11 +295,8 @@ const getForecast = (urlSecond) => {
 			whatWeather(weatherIconSix, data.daily[dayIndex].weather[0].id);
 			dayIndex++;
 
-			tempMaxSix.textContent = Math.floor(data.daily[dayIndex].temp.max) + '°C';
-			// tempMinSix.textContent = Math.floor(data.daily[dayIndex].temp.min) + '°C';
-			tempMinSix.textContent = `${Math.floor(
-				data.daily[dayIndex].temp.min
-			)}°C`;
+			tempMaxSix.textContent = `${Math.floor(data.daily[dayIndex].temp.max)}°C`;
+			tempMinSix.textContent = `${Math.floor(data.daily[dayIndex].temp.min)}°C`;
 
 			// Seventh day (but third day, "long story...")
 			d = new Date(data.daily[dayIndex].dt * 1000);
@@ -302,13 +305,21 @@ const getForecast = (urlSecond) => {
 			whatWeather(weatherIconSeven, data.daily[dayIndex].weather[0].id);
 			dayIndex++;
 
-			tempMaxSeven.textContent =
-				Math.floor(data.daily[dayIndex].temp.max) + '°C';
-			tempMinSeven.textContent =
-				Math.floor(data.daily[dayIndex].temp.min) + '°C';
+			tempMaxSeven.textContent = `${Math.floor(
+				data.daily[dayIndex].temp.max
+			)}°C`;
+			tempMinSeven.textContent = `${Math.floor(
+				data.daily[dayIndex].temp.min
+			)}°C`;
 		})
 		.catch((err) => console.error(err));
 };
+
+// const setWeekDayTemp = (dayTempMax, dayTempMin, dayNumber) => {
+// 	dayTempMax.textContent = `${Math.floor(data.daily[dayNumber].temp.max)}°C`;
+// 	dayTempMin.textContent = `${Math.floor(data.daily[dayNumber].temp.min)}°C`;
+
+// }
 
 getWeather();
 btn.addEventListener('click', getWeather);
