@@ -68,9 +68,8 @@ let url;
 let urlNew;
 
 const getWeather = () => {
-	city = !input.value ? 'Warsaw' : input.value;
-	url = apiLink + city + apiKey + units;
-	// url = apiLink + city + apiKey + units;
+	city = `${!input.value ? 'Warsaw' : input.value}`;
+	url = `${apiLink}${city}${apiKey}${units}`;
 
 	// Using API via URL link  I've made above.
 	axios
@@ -114,7 +113,6 @@ const getWeather = () => {
 			const year = unixDateTime.getFullYear();
 			const month = months[unixDateTime.getMonth()];
 			const dayOfMonth = unixDateTime.getDate();
-			// currentDate.textContent = dayOfMonth + 'th ' + month + ' ' + year;
 			currentDate.textContent = `${dayOfMonth}th ${month} ${year}`;
 
 			// console.log(new Date(obj.dt*1000-(obj.timezone*1000)));
@@ -126,20 +124,13 @@ const getWeather = () => {
 			// Sunrise
 			const unixTimeSunrise = new Date(
 				unixSunrise * 1000 + res.data.timezone * 1000
-				// `${unixSunrise} * 1000 + ${res.data.timezone} * 1000}`
 			);
-			// const hoursSunrise = unixTimeSunrise.getHours() - 2;
 			const hoursSunrise = `${unixTimeSunrise.getHours() - 2}`;
-			// const minutesSunrise =
-			// 	unixTimeSunrise.getMinutes() < 10
-			// 		? '0' + unixTimeSunrise.getMinutes()
-			// 		: unixTimeSunrise.getMinutes();
 			const minutesSunrise = `${
 				unixTimeSunrise.getMinutes() < 10
 					? '0' + unixTimeSunrise.getMinutes()
 					: unixTimeSunrise.getMinutes()
 			}`;
-			// sunrise.textContent = hoursSunrise + ':' + minutesSunrise;
 			sunrise.textContent = `${hoursSunrise}:${minutesSunrise}`;
 
 			// Sunset
@@ -159,22 +150,12 @@ const getWeather = () => {
 
 			cityName.textContent = res.data.name;
 			currentDescription.textContent = res.data.weather[0].main;
-			// currentTemp.textContent = Math.floor(temp) + '°C';
 			currentTemp.textContent = `${Math.floor(temp)}°C`;
 			warning.textContent = '';
 			input.value = '';
 
 			whatWeather(weatherIconCurrent, status.id);
 
-			// Second API link to get the city by coordinates from the firstly inserted location.
-			// urlNew =
-			// 	apiLinkSecond +
-			// 	res.data.coord.lat +
-			// 	'&lon=' +
-			// 	res.data.coord.lon +
-			// 	'&exclude=minutely,hourly' +
-			// 	apiKey +
-			// 	units;
 			urlNew = `${apiLinkSecond}${res.data.coord.lat}&lon=${res.data.coord.lon}&exclude=minutely,hourly${apiKey}${units}`;
 
 			getForecast(urlNew);
