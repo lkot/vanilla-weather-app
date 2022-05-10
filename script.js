@@ -70,6 +70,7 @@ let urlNew;
 const getWeather = () => {
 	city = !input.value ? 'Warsaw' : input.value;
 	url = apiLink + city + apiKey + units;
+	// url = apiLink + city + apiKey + units;
 
 	// Using API via URL link  I've made above.
 	axios
@@ -125,7 +126,7 @@ const getWeather = () => {
 			const unixTimeSunrise = new Date(
 				unixSunrise * 1000 + res.data.timezone * 1000
 			);
-			const hoursSunrise = unixTimeSunrise.getHours() - 1;
+			const hoursSunrise = unixTimeSunrise.getHours() - 2;
 			const minutesSunrise =
 				unixTimeSunrise.getMinutes() < 10
 					? '0' + unixTimeSunrise.getMinutes()
@@ -136,7 +137,7 @@ const getWeather = () => {
 			const unixTimeSunset = new Date(
 				unixSunset * 1000 + res.data.timezone * 1000
 			);
-			const hoursSunset = unixTimeSunset.getHours() - 1;
+			const hoursSunset = unixTimeSunset.getHours() - 2;
 			const minutesSunset =
 				unixTimeSunset.getMinutes() < 10
 					? '0' + unixTimeSunset.getMinutes()
