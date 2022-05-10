@@ -114,7 +114,8 @@ const getWeather = () => {
 			const year = unixDateTime.getFullYear();
 			const month = months[unixDateTime.getMonth()];
 			const dayOfMonth = unixDateTime.getDate();
-			currentDate.textContent = dayOfMonth + 'th ' + month + ' ' + year;
+			// currentDate.textContent = dayOfMonth + 'th ' + month + ' ' + year;
+			currentDate.textContent = `${dayOfMonth}th ${month} ${year}`;
 
 			// console.log(new Date(obj.dt*1000-(obj.timezone*1000)));
 
@@ -125,45 +126,56 @@ const getWeather = () => {
 			// Sunrise
 			const unixTimeSunrise = new Date(
 				unixSunrise * 1000 + res.data.timezone * 1000
+				// `${unixSunrise} * 1000 + ${res.data.timezone} * 1000}`
 			);
-			const hoursSunrise = unixTimeSunrise.getHours() - 2;
-			const minutesSunrise =
+			// const hoursSunrise = unixTimeSunrise.getHours() - 2;
+			const hoursSunrise = `${unixTimeSunrise.getHours() - 2}`;
+			// const minutesSunrise =
+			// 	unixTimeSunrise.getMinutes() < 10
+			// 		? '0' + unixTimeSunrise.getMinutes()
+			// 		: unixTimeSunrise.getMinutes();
+			const minutesSunrise = `${
 				unixTimeSunrise.getMinutes() < 10
 					? '0' + unixTimeSunrise.getMinutes()
-					: unixTimeSunrise.getMinutes();
-			sunrise.textContent = hoursSunrise + ':' + minutesSunrise;
+					: unixTimeSunrise.getMinutes()
+			}`;
+			// sunrise.textContent = hoursSunrise + ':' + minutesSunrise;
+			sunrise.textContent = `${hoursSunrise}:${minutesSunrise}`;
 
 			// Sunset
 			const unixTimeSunset = new Date(
 				unixSunset * 1000 + res.data.timezone * 1000
 			);
-			const hoursSunset = unixTimeSunset.getHours() - 2;
-			const minutesSunset =
+			const hoursSunset = `${unixTimeSunset.getHours() - 2}`;
+			const minutesSunset = `${
 				unixTimeSunset.getMinutes() < 10
 					? '0' + unixTimeSunset.getMinutes()
-					: unixTimeSunset.getMinutes();
-			sunset.textContent = hoursSunset + ':' + minutesSunset;
+					: unixTimeSunset.getMinutes()
+			}`;
+			sunset.textContent = `${hoursSunset}:${minutesSunset}`;
 
 			// Assigning single object to the status - using axios I'll 'spread' the array(which is located in res.data.weather).
 			const status = Object.assign({}, ...res.data.weather);
 
 			cityName.textContent = res.data.name;
 			currentDescription.textContent = res.data.weather[0].main;
-			currentTemp.textContent = Math.floor(temp) + '°C';
+			// currentTemp.textContent = Math.floor(temp) + '°C';
+			currentTemp.textContent = `${Math.floor(temp)}°C`;
 			warning.textContent = '';
 			input.value = '';
 
 			whatWeather(weatherIconCurrent, status.id);
 
 			// Second API link to get the city by coordinates from the firstly inserted location.
-			urlNew =
-				apiLinkSecond +
-				res.data.coord.lat +
-				'&lon=' +
-				res.data.coord.lon +
-				'&exclude=minutely,hourly' +
-				apiKey +
-				units;
+			// urlNew =
+			// 	apiLinkSecond +
+			// 	res.data.coord.lat +
+			// 	'&lon=' +
+			// 	res.data.coord.lon +
+			// 	'&exclude=minutely,hourly' +
+			// 	apiKey +
+			// 	units;
+			urlNew = `${apiLinkSecond}${res.data.coord.lat}&lon=${res.data.coord.lon}&exclude=minutely,hourly${apiKey}${units}`;
 
 			getForecast(urlNew);
 		})
